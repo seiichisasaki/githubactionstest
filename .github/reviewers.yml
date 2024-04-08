@@ -6,6 +6,14 @@ reviewers:
     jipcode-maintainer:
       - seiichisasaki #佐々木
 
+  per_author:
+    jipcode-maintainer:
+      - jipcode-maintainer
+
+  files:
+    '.github/**':
+      - jipcode-maintainer
+
 options:
   number_of_reviewers: 1
   enable_group_assignment: false
