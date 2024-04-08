@@ -3,6 +3,7 @@ name: Auto Request Review
 on:
   pull_request:
     types: [opened, ready_for_review, reopened]
+    branches: [ "main", "patch-*" ]
 
 jobs:
   auto-request-review:

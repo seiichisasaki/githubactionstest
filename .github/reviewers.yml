@@ -1,20 +1,59 @@
 reviewers:
   defaults:
-    - jipcode-maintainer
+    - engineers
 
   groups:
-    jipcode-maintainer:
-      - seiichisasaki #佐々木
+    designers:
+      - ogawaajeed # 小川
+      - suminari-setoguchi # 瀬戸口
+      - ayakaita # 海田
+    engineers:
+      - seiichisasaki
 
   per_author:
-    jipcode-maintainer:
-      - jipcode-maintainer
+    # エンジニアの PR は全エンジニアがレビュー
+    engineers:
+      - engineers
 
-  files:
-    '.github/**':
-      - jipcode-maintainer
+    # デザイナーは PR 作成者ごとにレビュアーを指定
+    ogawaajeed:
+      - suminari-setoguchi
+    suminari-setoguchi:
+      - ogawaajeed
+    ayakaita:
+      - suminari-setoguchi
+    Miyukichi-pixta:
+      - suminari-setoguchi
+
+files:
+  # Root directories
+  '.circleci/**':
+    - engineers
+  '.github/**':
+    - engineers
+  'deploy/**':
+    - engineers
+  'docs/**':
+    - engineers
+
+  # Files
+  'README.md':
+    - designers
+    - engineers
+  '**/Dockerfile':
+    - engineers
+  '**/Gemfile':
+    - engineers
+  '**/Rakefile':
+    - engineers
+  '**/.rubocop.yml':
+    - engineers
+  '**/.eslint*':
+    - engineers
 
 options:
-  number_of_reviewers: 1
-  enable_group_assignment: false
-
+  ignore_draft: true
+  ignored_keywords:
+    - DO NOT REVIEW
+    - NO REVIEW REQUIRED
+    - レビュー不要
