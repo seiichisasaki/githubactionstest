@@ -1,0 +1,12 @@
+reviewers:
+  defaults:
+    - jipcode-maintainer
+
+  groups:
+    jipcode-maintainer:
+      - seiichisasaki #佐々木
+
+options:
+  number_of_reviewers: 1
+  enable_group_assignment: false
+
