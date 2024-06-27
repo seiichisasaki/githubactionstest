@@ -1,0 +1,21 @@
+name: add comment
+run-name: echo by @${{ github.actor }}
+on:
+  workflow_dispatch:
+  pull_request_target:
+    types: [opened, ready_for_review, reopened]
+    branches: ["master"]
+jobs:
+  add-comment:
+    name: add comment
+    runs-on: ubuntu-latest
+    # if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
+      - name: Add comment to pull request
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr comment \
+            -b 'チケット作成を忘れずにお願いします ref.https://pixta.backlog.jp/view/DEV-33576' \
+            -b '\n https://github.com/dependabot/dependabot-core/issues/2211' "${URL}"
