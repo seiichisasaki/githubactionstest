@@ -6,10 +6,9 @@ on:
     types: [opened, ready_for_review, reopened, synchronize]
 jobs:
   add-comment:
-    name: add comment
     runs-on: ubuntu-latest
     steps:
-      - name Create comment file
+      - name: Create comment file
         run: |
 	  cat  << EOF > comment.md
           ## チケット作成を忘れずにお願いします
