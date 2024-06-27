@@ -9,9 +9,18 @@ jobs:
     name: add comment
     runs-on: ubuntu-latest
     steps:
+      - name Create comment file
+        run: |
+	  cat  << EOF > comment.md
+          ## チケット作成を忘れずにお願いします
+	  ref. https://pixta.backlog.jp/view/DEV-33576
+
+          https://github.com/dependabot/dependabot-core/issues/2211
+          また上記イシューが機能化されたらそちらを使うようにし,このワークフローは削除してください
+          EOF
       - name: Add comment to pull request
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           URL: ${{ github.event.pull_request.html_url }}
-        run:
-          gh pr comment -b 'チケット作成を忘れずにお願いします' "${URL}"
+        run: |
+          gh pr comment -F comment.md "${URL}"
