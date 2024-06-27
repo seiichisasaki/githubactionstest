@@ -9,13 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Create comment file
-      run:
+      run: |
         cat << EOF > comment.md
-        ## チケット作成を忘れずにお願いします
-	ref. https://pixta.backlog.jp/view/DEV-33576
+          ## チケット作成を忘れずにお願いします
+          ref. https://pixta.backlog.jp/view/DEV-33576
 
-        https://github.com/dependabot/dependabot-core/issues/2211
-        また上記イシューが機能化されたらそちらを使うようにし,このワークフローは削除してください
+           https://github.com/dependabot/dependabot-core/issues/2211
+           また上記イシューが機能化されたらそちらを使うようにし,このワークフローは削除してください
         EOF
     - name: Add comment to pull request
       env:
