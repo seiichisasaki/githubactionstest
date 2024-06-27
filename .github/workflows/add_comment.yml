@@ -2,7 +2,7 @@ name: add comment
 run-name: echo by @${{ github.actor }}
 on:
   workflow_dispatch:
-  pull_request_target:
+  pull_request:
     types: [opened, ready_for_review, reopened]
 jobs:
   add-comment:
