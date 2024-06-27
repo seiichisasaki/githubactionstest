@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Create comment file
-      run: |
+      run:
         cat << EOF > comment.md
         ## チケット作成を忘れずにお願いします
 	ref. https://pixta.backlog.jp/view/DEV-33576
